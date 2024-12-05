@@ -34,3 +34,4 @@ else
         --region "$REGION"
     echo "DynamoDB lock table $LOCK_TABLE created successfully."
 fi
+
