@@ -5,6 +5,12 @@ STATE_BUCKET="terraform-state-bucket"
 LOCK_TABLE="terraform-lock-table"
 REGION="us-east-1"
 
+# Check if AWS credentials are set
+if [[ -z "$AWS_ACCESS_KEY_ID" || -z "$AWS_SECRET_ACCESS_KEY" ]]; then
+    echo "Error: AWS credentials not set. Exiting."
+    exit 1
+fi
+
 # Check if the S3 state bucket exists
 if aws s3api head-bucket --bucket "$STATE_BUCKET" 2>/dev/null; then
     echo "State bucket $STATE_BUCKET already exists."
