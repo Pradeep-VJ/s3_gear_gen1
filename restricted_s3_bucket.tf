@@ -17,3 +17,4 @@ output "restricted_files_bucket_arn" {
   value = aws_s3_bucket.restricted_files.arn
   description = "ARN of the restricted files bucket"
 }
+
